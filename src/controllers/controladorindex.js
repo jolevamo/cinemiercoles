@@ -135,7 +135,7 @@ peliculas.forEach(function(pelicula){
     //2. Creamos una tarjeta para cada pelicula
 
     let tarjeta = document.createElement("div")
-    tarjeta.classList.add("card","h-100")
+    tarjeta.classList.add("card","h-")
 
     //3. Creamos una imagen para cada pelicula
 
@@ -167,6 +167,12 @@ peliculas.forEach(function(pelicula){
     sipnosis.classList.add("card-text","d-none")
     sipnosis.textContent = pelicula.sinopsis
 
+    //8. Se crea clasificación para cada pelicula:
+
+    let clasificacion = document.createElement("h6")
+    clasificacion.classList.add("text-start","fw-bold")
+    clasificacion.textContent = "Clasificación: "+pelicula.clasificacion
+
     //Traversing: Crear etiquetas de HTML desde JS
 
     /*let poster = document.createElement("img")
@@ -183,6 +189,7 @@ peliculas.forEach(function(pelicula){
     tarjeta.appendChild(genero)
     tarjeta.appendChild(idioma)
     tarjeta.appendChild(sipnosis)
+    tarjeta.appendChild(clasificacion)
     columna.appendChild(tarjeta)    
     fila.appendChild(columna)
 
