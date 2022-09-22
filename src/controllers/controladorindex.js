@@ -43,7 +43,7 @@ let peliculaseleccionada = {}
 fila.addEventListener("click", function(evento){
     
     
-    peliculaseleccionada.poster=(evento.target.parentElement.querySelector('img').src)
+    peliculaseleccionada.poster=(evento.target.parentElement.querySelector('img').src) //imagen
     peliculaseleccionada.nombre=(evento.target.parentElement.querySelector('h3').textContent) //nombre
     peliculaseleccionada.genero=(evento.target.parentElement.querySelectorAll('h5')[0].textContent) //genero
     peliculaseleccionada.idioma=(evento.target.parentElement.querySelector('p').textContent)//idioma
@@ -54,7 +54,7 @@ fila.addEventListener("click", function(evento){
 
     console.log(peliculaseleccionada)
 
-    //Llamando a la memoria del navegador
+    //Llamando a la memoria del navegador, se debe convertir en string para poder guardarlo en la memoria
 
     localStorage.setItem("peliculaseleccionada",JSON.stringify(peliculaseleccionada))
     
