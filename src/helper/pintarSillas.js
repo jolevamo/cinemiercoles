@@ -1,4 +1,9 @@
-export function pintarSillas(asientos,cinema){
+export function pintarSillas(asientos){
+
+    // Pintar desde js mi sala de cine
+    let cinema = document.querySelector('#salacinema')
+
+    //Recorro los asientos y aplicar traversing
     asientos.forEach(function(hilera){
 
         let fila=document.createElement("div")

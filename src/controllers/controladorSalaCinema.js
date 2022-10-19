@@ -1,40 +1,26 @@
 import {pintarSillas} from "../helper/pintarSillas.js"
+import {seleccionSillas} from "../helper/seleccionSillas.js"
+import {validarSillas} from "../helper/validarSillas.js"
+import {asientos} from "../helper/baseDatosAsientos.js"
 
-let asientos =[
-    [{id:"a1",estado:2},{id:"b1",estado:0},{id:"c1",estado:0},{id:"d1",estado:0}],
-    [{id:"a2",estado:0},{id:"b2",estado:0},{id:"c2",estado:0},{id:"d2",estado:0}],
-    [{id:"a3",estado:0},{id:"b3",estado:0},{id:"c3",estado:2},{id:"d3",estado:0}],
-]
-//Pintar desde js mi sala de cine:
+//acceder al localstorage y preguntar si asientos != null si es null cargo esta sino cargo el localstorage
+let sillasSeleccionadas = JSON.parse(localStorage.getItem('asientos'))
 
-let cinema = document.getElementById("salacinema")
+if(sillasSeleccionadas==null){
+    sillasSeleccionadas = asientos
+}
+
+if (asientos.estado != 0){
+    pintarSillas(sillasSeleccionadas)
+}else{
+    pintarSillas(asientos)
+}
+
+let cinema = document.querySelector('#salacinema')
 
 //Recorreo los asientos y aplicar traversing
 
-pintarSillas(asientos, cinema)
+seleccionSillas(asientos)
+validarSillas(asientos)
 
-//Evento de clic en la sala de cine
-
-cinema.addEventListener("click",function(evento){
-    if (evento.target.tagName=="IMG"){
-        let idAsientoSeleccionado = evento.target.id
-        
-        asientos.forEach(function(hilera){
-            hilera.forEach(function(asiento){
-                if (asiento.id==idAsientoSeleccionado) {
-                    
-                    //encontre el asiento dónde el usuario se quiere sentar
-                    if (asiento.estado==0) {
-                        asiento.estado=1
-                        evento.target.src="../../assets/img/chairGreen.png"
-                    }else if(asiento.estado==1){
-                        asiento.estado=0
-                        evento.target.src="../../assets/img/chair.png"
-                    }
-                }
-
-            })
-        })
-    }
-})
 
