@@ -8,6 +8,7 @@
 }
 .factura{
     /*background-image: url('../img/FondoFac.jpg');*/
+    background-color:bisque;
     border-collapse: collapse;
     background-repeat: no-repeat;
     background-size: contain;
@@ -17,9 +18,14 @@
     margin: 0 auto;
     position: relative;
     padding: 40px 45px 60px 40px;
-    /*display: none;*/
+    display: none;
     flex-wrap: wrap;
     align-content: flex-start;
+    
+}
+.factura:hover{
+    background-color: aquamarine;
+    transition: .8s;
 }
 .factura--active {
     display: flex;
